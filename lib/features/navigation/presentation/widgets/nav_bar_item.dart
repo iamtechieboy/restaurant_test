@@ -1,6 +1,6 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:restaurant_test/core/config/app_colors.dart';
 import 'package:restaurant_test/core/util/extensions/extensions.dart';
 import 'package:restaurant_test/features/navigation/domain/entities/nav_bar_entity.dart';
 
@@ -21,19 +21,22 @@ class NavItemWidget extends StatelessWidget {
         children: [
           Icon(
             isSelectedIcon(),
+            color: isSelectedColor(),
           ),
           const Gap(6),
           Text(
-            navigationBarModel.title.tr(),
+            navigationBarModel.title,
             overflow: TextOverflow.ellipsis,
             textAlign: TextAlign.center,
             maxLines: 1,
-            style: context.textTheme.headlineSmall!.copyWith(fontSize: 11, color: isSelectedColor()),
+            style: context.textTheme.bodyMedium!.copyWith(
+              color: isSelectedColor(),
+            ),
           ),
         ],
       );
 
-  Color? isSelectedColor() => currentIndex != navigationBarModel.index ? Colors.red : null;
+  Color? isSelectedColor() => currentIndex != navigationBarModel.index ? AppColors.gray : AppColors.blue;
 
   IconData isSelectedIcon() {
     return currentIndex == navigationBarModel.index
@@ -41,4 +44,3 @@ class NavItemWidget extends StatelessWidget {
         : navigationBarModel.unSelectedIcon;
   }
 }
-    

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:restaurant_test/generated/locale_keys.g.dart';
 import 'package:restaurant_test/features/navigation/domain/entities/nav_bar_entity.dart';
 import 'package:restaurant_test/features/navigation/presentation/widgets/nav_bar_item.dart';
 import 'package:restaurant_test/core/util/extensions/extensions.dart';
@@ -17,17 +16,17 @@ class NavigationScreen extends StatefulWidget {
 class _NavigationScreenState extends State<NavigationScreen> with TickerProviderStateMixin {
   final List<NavigationBarModel> navLabels = [
     NavigationBarModel(
-      title: LocaleKeys.home,
+      title: "Tables",
       index: 0,
-      selectedIcon: Icons.home,
-      unSelectedIcon: Icons.home_outlined,
+      selectedIcon: Icons.table_bar_rounded,
+      unSelectedIcon: Icons.table_bar_outlined,
     ),
     NavigationBarModel(
-      title: LocaleKeys.settings,
+      title: "Orders",
       index: 1,
-      selectedIcon: Icons.settings,
-      unSelectedIcon: Icons.settings_outlined,
-    )
+      selectedIcon: Icons.receipt_rounded,
+      unSelectedIcon: Icons.receipt_outlined,
+    ),
   ];
 
   late TabController tabController;
@@ -54,11 +53,11 @@ class _NavigationScreenState extends State<NavigationScreen> with TickerProvider
         resizeToAvoidBottomInset: true,
         body: widget.statefulNavigationShell,
         bottomNavigationBar: Container(
-          height: 70 + context.padding.bottom,
+          height: kBottomNavigationBarHeight + context.padding.bottom,
           padding: EdgeInsets.only(bottom: context.padding.bottom),
           decoration: BoxDecoration(
             color: context.appBarTheme.backgroundColor,
-            border: const Border(top: BorderSide(color: Colors.grey)),
+            border: Border(top: BorderSide(color: Colors.grey.shade300)),
             boxShadow: [
               BoxShadow(
                 color: const Color(0xFF171725).withOpacity(0.05),
@@ -83,7 +82,7 @@ class _NavigationScreenState extends State<NavigationScreen> with TickerProvider
                 indicator: const BoxDecoration(),
                 controller: tabController,
                 labelPadding: EdgeInsets.zero,
-                overlayColor: MaterialStateProperty.all(Colors.transparent),
+                overlayColor: WidgetStateProperty.all(Colors.transparent),
                 indicatorSize: TabBarIndicatorSize.tab,
                 tabs: [
                   NavItemWidget(
@@ -103,5 +102,3 @@ class _NavigationScreenState extends State<NavigationScreen> with TickerProvider
     );
   }
 }
-
-    

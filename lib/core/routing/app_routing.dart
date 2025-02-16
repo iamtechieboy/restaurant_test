@@ -1,19 +1,28 @@
 // DO NOT DELETE THIS COMMENTED CODE
-//::IMPORTS::    
-import 'package:flutter/material.dart';
+//::IMPORTS::
+import 'package:flutter/cupertino.dart';
+import 'package:restaurant_test/features/tables/domain/entities/table_entity.dart';
+import 'package:restaurant_test/features/tables/presentation/pages/table_single_screen.dart';
+import 'package:restaurant_test/features/tables/presentation/pages/tables_screen.dart';
+import 'package:restaurant_test/features/orders/presentation/pages/orders_screen.dart';
 import 'package:go_router/go_router.dart';
 import 'package:restaurant_test/features/navigation/presentation/navigation_screen.dart';
+import 'package:restaurant_test/features/tables/presentation/pages/menus_screen.dart';
 
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 class AppRouter {
-
   // DO NOT DELETE THIS COMMENTED CODE
   //::NAMES::
-  static const String examplePageOne = "/examplePageOne";
-  static const String examplePageTwo = "/examplePageTwo";
+
+  static const String tables = '/tables';
+  static const String tableSingle = 'tables/tableSingle';
+  static const String menus = 'tables/tableSingle/menus';
+  static const String orders = "/orders";
 
   static final GoRouter router = GoRouter(
-    initialLocation: examplePageOne,
+    initialLocation: tables,
+    navigatorKey: navigatorKey,
     routes: [
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) => NavigationScreen(
@@ -24,42 +33,45 @@ class AppRouter {
           StatefulShellBranch(
             routes: <RouteBase>[
               GoRoute(
-                name: examplePageOne,
-                path: examplePageOne,
-                builder: (context, state) => const Scaffold(
-                  body: Text('Home'),
-                ),
-                routes: const <RouteBase>[],
+                name: tables,
+                path: tables,
+                builder: (context, state) => const TablesScreen(),
+                routes: <RouteBase>[
+                  GoRoute(
+                    name: tableSingle,
+                    path: tableSingle,
+                    parentNavigatorKey: navigatorKey,
+                    builder: (context, state) => TableSingleScreen(tableEntity: state.extra as TableEntity),
+                    routes: <RouteBase>[
+                      GoRoute(
+                        name: menus,
+                        path: menus,
+                        parentNavigatorKey: navigatorKey,
+                        builder: (context, state) => const MenusWidget(),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ],
           ),
+
           /// Setting section
           StatefulShellBranch(
             routes: <RouteBase>[
               GoRoute(
-                name: examplePageTwo,
-                path: examplePageTwo,
-                builder: (context, state) => const Scaffold(
-                  body: Text('examplePageTwo'),
-                ),
+                name: orders,
+                path: orders,
+                builder: (context, state) => const OrdersScreen(),
                 routes: const <RouteBase>[],
               ),
             ],
           ),
         ],
       ),
-      // GoRoute(
-      //   name: example,
-      //   path: example,
-      //   builder: (context, state) => ExampleScreen(),
-      // ),
-      // Define more routes as needed
-      
+
       // DO NOT DELETE THIS COMMENTED CODE
       //::ROUTES::
-     
     ],
   );
 }
-
-      

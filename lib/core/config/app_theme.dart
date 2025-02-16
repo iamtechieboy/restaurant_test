@@ -6,9 +6,13 @@ class AppTheme {
     scaffoldBackgroundColor: Colors.white,
     appBarTheme: const AppBarTheme(
       backgroundColor: Colors.white,
-      elevation: 0,
       foregroundColor: Colors.white,
+      surfaceTintColor: Colors.white,
     ),
+    tabBarTheme: const TabBarTheme(
+      dividerColor: Colors.transparent
+    ),
+
     textTheme: const TextTheme(
       displayLarge: displayLarge,
       displayMedium: displayMedium,
@@ -31,74 +35,84 @@ class AppTheme {
     fontSize: 24,
     fontWeight: FontWeight.w700,
     color: AppColors.dark,
+    letterSpacing: -0.2,
   );
   static const displayMedium = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.w600,
     color: AppColors.dark,
+    letterSpacing: -0.2,
   );
   static const displaySmall = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w600,
     color: AppColors.dark,
+    letterSpacing: -0.2,
   );
   static const headlineLarge = TextStyle(
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: FontWeight.w600,
     color: AppColors.dark,
+    letterSpacing: -0.2,
   );
   static const headlineMedium = TextStyle(
-    fontSize: 13,
-    fontWeight: FontWeight.w500,
-    color: AppColors.dark,
-  );
-  static const headlineSmall = TextStyle(
-    fontSize: 12,
-    fontWeight: FontWeight.w500,
-    color: AppColors.dark,
-  );
-  static const titleLarge = TextStyle(
-    fontSize: 12,
-    fontWeight: FontWeight.w600,
-    color: AppColors.dark,
-  );
-  static const titleMedium = TextStyle(
-    fontSize: 13,
-    fontWeight: FontWeight.w600,
-    color: AppColors.dark,
-  );
-  static const titleSmall = TextStyle(
-    fontSize: 11,
-    fontWeight: FontWeight.w400,
-    color: AppColors.dark,
-  );
-  static const bodyLarge = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w500,
     color: AppColors.dark,
-    letterSpacing: 0,
+    letterSpacing: -0.2,
   );
-  static const bodyMedium = TextStyle(
-    fontSize: 11,
+  static const headlineSmall = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+    color: AppColors.dark,
+    letterSpacing: -0.2,
+  );
+  static const titleLarge = TextStyle(
+    fontSize: 14,
     fontWeight: FontWeight.w600,
     color: AppColors.dark,
+    letterSpacing: -0.2,
   );
-  static const bodySmall = TextStyle(
+  static const titleMedium = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+    color: AppColors.dark,
+    letterSpacing: -0.2,
+  );
+  static const titleSmall = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w400,
     color: AppColors.dark,
-    letterSpacing: 0,
+    letterSpacing: -0.2,
   );
-  static const labelLarge = TextStyle(
-    fontSize: 16,
+  static const bodyLarge = TextStyle(
+    fontSize: 12,
+    fontWeight: FontWeight.w500,
+    color: AppColors.dark,
+    letterSpacing: -0.2,
+  );
+  static const bodyMedium = TextStyle(
+    fontSize: 12,
     fontWeight: FontWeight.w600,
     color: AppColors.dark,
-    letterSpacing: 0,
+    letterSpacing: -0.2,
   );
-  static const labelMedium = TextStyle(
+  static const bodySmall = TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.w400,
     color: AppColors.dark,
-    letterSpacing: 0,
+    letterSpacing: -0.2,
+  );
+  static const labelLarge = TextStyle(
+    fontSize: 10,
+    fontWeight: FontWeight.w600,
+    color: AppColors.dark,
+    letterSpacing: -0.2,
+  );
+  static const labelMedium = TextStyle(
+    fontSize: 10,
+    fontWeight: FontWeight.w400,
+    color: AppColors.dark,
+    letterSpacing: -0.2,
   );
 }

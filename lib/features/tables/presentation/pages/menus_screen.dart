@@ -139,6 +139,7 @@ class _MenusWidgetState extends State<MenusWidget> {
                   const Gap(8),
                   Expanded(
                     child: ScaleAnimationWidget(
+                      isDisabled: state.cartList.isEmpty,
                       onTap: () {
                         context.pop(state.cartList);
                       },
